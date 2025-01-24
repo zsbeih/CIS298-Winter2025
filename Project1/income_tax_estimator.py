@@ -2,42 +2,65 @@
 
 def income_tax_calc(adj_gross_inc):
 
+    taxes_37 = 0
+    taxes_35 = 0
+    taxes_32 = 0
+    taxes_24 = 0
+    taxes_22 = 0
+    taxes_12 = 0
+    taxes_10 = 0
+    total_taxes = 0
+
     if adj_gross_inc > 609350:
         tax_bracket = adj_gross_inc - 609350
-        taxes = (tax_bracket) * 0.37
-        return taxes + income_tax_calc(609350)
+        taxes_37 = (tax_bracket) * 0.37
+        total_taxes += taxes_37
+        adj_gross_inc = 609350
     
-    elif adj_gross_inc > 243725:
+    if adj_gross_inc > 243725:
         tax_bracket = adj_gross_inc - 243725
-        taxes = (tax_bracket) * 0.35
-        return taxes + income_tax_calc(243725)
+        taxes_35 = (tax_bracket) * 0.35
+        total_taxes += taxes_35
+        adj_gross_inc = 243725
     
-    elif adj_gross_inc > 191950:
+    if adj_gross_inc > 191950:
         tax_bracket = adj_gross_inc - 191950
-        taxes = (tax_bracket) * 0.32
-        return taxes + income_tax_calc(191950)
+        taxes_32 = (tax_bracket) * 0.32
+        total_taxes += taxes_32
+        adj_gross_inc = 191950
     
-    elif adj_gross_inc > 100525:
+    if adj_gross_inc > 100525:
         tax_bracket = adj_gross_inc - 100525
-        taxes = (tax_bracket) * 0.24
-        return taxes + income_tax_calc(100525)
-    
-    elif adj_gross_inc > 47150:
+        taxes_24 = (tax_bracket) * 0.24
+        total_taxes += taxes_24
+        adj_gross_inc = 100525
+
+    if adj_gross_inc > 47150:
         tax_bracket = adj_gross_inc - 47150
-        taxes = (tax_bracket) * 0.22
-        return taxes + income_tax_calc(47150)
-    
-    elif adj_gross_inc > 11600:
+        taxes_22 = (tax_bracket) * 0.22
+        total_taxes += taxes_22
+        adj_gross_inc = 47150
+
+    if adj_gross_inc > 11600:
         tax_bracket = adj_gross_inc - 11600
-        taxes = (tax_bracket) * 0.12
-        return taxes + income_tax_calc(11600)
-    
-    elif adj_gross_inc > 0:
+        taxes_12 = (tax_bracket) * 0.12
+        total_taxes += taxes_12
+        adj_gross_inc = 11600
+
+    if adj_gross_inc > 0:
         tax_bracket = adj_gross_inc - 0
-        taxes = (tax_bracket) * 0.10
-        return taxes
-    else: 
-        return 0
+        taxes_10 = (tax_bracket) * 0.10
+        total_taxes += taxes_10
+    
+    print(f"Taxes owed at 10% bracket: ${taxes_10:.2f}")
+    print(f"Taxes owed at 12% bracket: ${taxes_12:.2f}")
+    print(f"Taxes owed at 22% bracket: ${taxes_22:.2f}")
+    print(f"Taxes owed at 24% bracket: ${taxes_24:.2f}")
+    print(f"Taxes owed at 32% bracket: ${taxes_32:.2f}")
+    print(f"Taxes owed at 35% bracket: ${taxes_35:.2f}")
+    print(f"Taxes owed at 37% bracket: ${taxes_37:.2f}")
+
+    return total_taxes
 
 another_input = 'y'
 counter = 1
@@ -65,7 +88,13 @@ if gross_deduction < 14600:
 
 adj_gross_inc = gross_income - gross_deduction
 
+
+print(f'Gross Income: ${gross_income}')
+print(f'Total Deductions: ${gross_deduction}')
+print(f'Adjusted Gross Income: ${adj_gross_inc}')
+
 taxes_owed = income_tax_calc(adj_gross_inc)
+
 
 print(f'Total taxes owed: ${taxes_owed:.2f}')
 if taxes_owed == 0:
