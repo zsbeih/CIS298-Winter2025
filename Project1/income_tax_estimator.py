@@ -1,5 +1,3 @@
-# Note: used recursive approach just for fun, definitely not the most efficient approach. In addition, I included handling for edge cases(specifically when taxes owed would be $0)
-
 def income_tax_calc(adj_gross_inc):
 
     taxes_37 = 0
