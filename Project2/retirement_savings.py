@@ -83,8 +83,8 @@ print(f'    Mattress savings: ${balance_dict[year_counter]["mattress"]:,.2f}')
 print(f'    Bank savings: ${balance_dict[year_counter]["bank"]:,.2f}')
 print(f'    Bond savings: ${balance_dict[year_counter]["bonds"]:,.2f}')
 print(f'    Stock savings: ${balance_dict[year_counter]["stocks"]:,.2f}\n')
-print(f"Total retirement savings: ${sum(balance_dict[year_counter].values()):,.2f}")
-print(f"Adjusted retirement balance for inflation: ${sum(balance_dict[year_counter].values()) * inflation:,.2f}")
+print(f"    Total retirement savings: ${sum(balance_dict[year_counter].values()):,.2f}")
+print(f"    Adjusted retirement balance for inflation: ${sum(balance_dict[year_counter].values()) * inflation:,.2f}")
 
 
 # Write balances to csv
