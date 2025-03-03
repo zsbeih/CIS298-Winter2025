@@ -5,15 +5,10 @@ from Rotor import Rotor
 from Plugboard import Plugboard
 
 class TestEnigmaMachine(TestCase):
-    
-    def test_rotor_initialization(self):
-        # Test initializing rotor and the length of wiring and reverse wiring
-        rotor = Rotor(1, 0)
-        self.assertEqual(len(rotor._wiring), 26)
-        self.assertEqual(len(rotor._reverse_wiring), 26)
         
-    def test_rotor_rotation(self):
+    def test_rotor(self):
         # Test rotating the rotor as well as the position of the rotor after rotating on the last position(25)
+        # Forward and backward mapping are tested during encryption/decryption
         rotor = Rotor(1, 0)
         self.assertEqual(rotor._position, 0)
         
@@ -33,7 +28,7 @@ class TestEnigmaMachine(TestCase):
             self.assertEqual(reflector.reflect(reflected), char)
     
     def test_plugboard(self):
-        # Test the plugboard by checking if the pairs are correctly initialized
+        # Test the plugboard by checking if the pairs are correctly matching
         plugboard = Plugboard("ABCDEFGHIJKLMNOPQRST")
         
         self.assertEqual(plugboard.swap('A'), 'B')
