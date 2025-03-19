@@ -43,7 +43,7 @@ for offense_type in offenses:
     offense_counts.append(offenses[offense_type])
 
 plt.bar(offense_types, offense_counts)
-plt.title('Number of Incidents per Offense Type in Washington, DC')
+plt.title('Number of Incidents per Offense Type in Washington, DC in 2025')
 plt.ylabel('Number of Incidents')
 plt.xticks(rotation=75, fontsize = 6) # X axis overlap with horizontal text: https://stackoverflow.com/questions/50033189/matplotlib-x-axis-overlap
 plt.tight_layout() # Text cut off at bottom of graph: https://stackoverflow.com/questions/6774086/how-to-adjust-padding-with-cutoff-or-overlapping-labels
@@ -57,7 +57,7 @@ for shift_name in shifts:
     shift_counts.append(shifts[shift_name])
 
 plt.pie(shift_counts, labels=shift_names, autopct='%1.0f%%') # How to show percentage on pie chart: https://stackoverflow.com/questions/72166012/getting-percent-sign-to-show-up-in-pie-chart
-plt.title('Crime Spread by Time of Day in Washington, DC')
+plt.title('Crime Spread by Time of Day in Washington, DC in 2025')
 plt.show()
 
 days = []
@@ -74,7 +74,7 @@ for i in range(0, len(days), 7):
     weekly_ticks.append(days[i])
 
 plt.plot(days, daily_crime_counts)
-plt.title('Daily Crime Incidents in 2025 in Washington, DC')
+plt.title('Daily Crime Incidents in Washington, DC in 2025')
 plt.ylabel('Number of Incidents')
 plt.xticks(weekly_ticks, rotation = 75, fontsize = 6)
 plt.tight_layout()
